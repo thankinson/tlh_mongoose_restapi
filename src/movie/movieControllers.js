@@ -12,13 +12,6 @@ exports.addMovie = async (req, res) => {
 
 exports.listMovie = async (req, res) =>{
     try {
-        // if (req){
-        //     const movies = await Movie.findOne({[req.param.filterKey]: req.param.filterVal});
-        //     res.status(200).send({movie: movies});
-        // } else {
-        //     const movies = await Movie.find({});
-        //     res.status(200).send({allMovie: movies});
-        // }
         const movies = await Movie.findAll();
         res.status(200).send({allMovie: movies});
     } catch (error) {
