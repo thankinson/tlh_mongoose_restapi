@@ -17,7 +17,6 @@ const Movie = sequelize.define("Movie", {
 const dbSync = async () =>{
     await Movie.sync();
 }
-
 dbSync();
 
 module.exports =  Movie ;
