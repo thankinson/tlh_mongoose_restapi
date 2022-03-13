@@ -13,9 +13,9 @@ exports.addActor = async (req, res) => {
 exports.listActor = async (req, res) => {
     try {
         const actors = await Cast.find({});
-        res.status(200).send({allActors: actors})
+        res.status(200).send({allActors: actors});
     } catch (error) {
         console.log(error)
-        res.status(500).snd({err: error.message})
+        res.status(500).snd({err: error.message});
     }
-}
+};
