@@ -1,6 +1,5 @@
 const Cast = require("./actorsModel");
 
-
 exports.addActor = async (req, res) => {
     try {
         const newActor = await Cast.create(req.body);
@@ -34,7 +33,16 @@ exports.updateActor = async (req, res) => {
         res.status(200).send({updated: actor})
     } catch (error) {
         console.log(error);
-        res.status(500).send({err: error.message})
+        res.status(500).send({err: error.message});
     }
 };
 
+exports.deleteActor = async (req, res) => {
+    try {
+        const remove = Cast.destroy({where: {actor: req.body.actor}})
+        res.status(200).send({actors: remove});
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({err: error.message});
+    }
+};
