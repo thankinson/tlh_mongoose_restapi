@@ -14,9 +14,14 @@ const Movie = sequelize.define("Movie", {
     },
 });
 
-const dbSync = async () =>{
-    await Movie.sync();
-}
-dbSync();
+// this only needs to be used if there is no table in the db
+// const dbSync = async () =>{
+//     try {
+//         await Movie.sync();
+//     } catch (error) {
+//         console.log(error)
+//     }
+// };
+// dbSync();
 
 module.exports =  Movie ;

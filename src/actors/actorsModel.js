@@ -21,13 +21,14 @@ const Cast = sequelize.define("Cast", {
     }
 });
 
-const dbSync = async () =>{
-    try {
-        await Cast.sync();
-    } catch (error) {
-        console.log(error);
-    }
-};
-dbSync();
+// this only needs to be used if there is no table in the db
+// const dbSync = async () =>{
+//     try {
+//         await Cast.sync();
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
+// dbSync();
 
 module.exports = Cast;
