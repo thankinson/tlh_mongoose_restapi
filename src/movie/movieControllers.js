@@ -28,7 +28,6 @@ exports.listMovie = async (req, res) => {
 
 exports.updateMovie = async (req, res) => {
     try {
-         
             const movies = await Movie.update(
                 {[req.body.updateKey]: req.body.updateVal},
                 {where: { [req.body.filterKey]: req.body.filterVal }});
