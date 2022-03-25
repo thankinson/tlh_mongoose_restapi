@@ -14,6 +14,7 @@ exports.listMovie = async (req, res) => {
     try {
         const movies = await Movie.find({})
         res.status(200).send({allMovie: movies});
+        console.log(movies)
     } catch (error) {
         console.log(error);
         res.status(500).send({err: error.message});

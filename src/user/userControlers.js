@@ -12,6 +12,18 @@ exports.addUser = async (req, res) => {
     };
 };
 
+// exports.listUser = async (req, res) => {
+//     try {
+//         const user = await User.find({})
+//         res.status(200).send({user: user});
+//         console.log(movies)
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).send({err: error.message});
+//     };
+// };
+
+
 exports.login = async (req, res) =>{
     try {
         const token = await jwt.sign({_id: req.user._id}, process.env.SECRET)
