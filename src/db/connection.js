@@ -1,20 +1,12 @@
 require("dotenv").config();
-const { Sequelize } = require("sequelize");
+const mongoose = require("mongoose");
 
-exports.sequelize = new Sequelize(process.env.MYSQL_URI);
+const connection = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+    } catch (error) {
+        console.log(error);
+    };
+};
 
-// const initialize = async () => {
-//     process.env.MYSQL_URI = config.database;
-//     const connection = await mysql.createConnection(process.env.MYSQL_URI);
-//     await connection.query(`Create database if none exist \`${database}\`;`);
-
-//     exports.sequelize = new Sequelize(process.env.MYSQL_URI);
-
-//     await sequelize.sync()
-
-// }
-
-// initialize();
-
-
-// this is my database connection file. it connects to a MySql database
+connection();

@@ -1,27 +1,21 @@
-const { DataTypes, Sequelize } = require("sequelize");
-const { sequelize } = require("../db/connection");
+const mongoose = require("mongoose");
 
-const Movie = sequelize.define("Movie", {
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+const movieSchema = new mongoose.Schema({
+    tmdbId:{
+        type: String, 
+        unique: true,
+        required: true
     },
-    title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+    title:{
+        type: String,
+        unique: true,
+        required: true,
     },
+    poster: {
+        type: String,
+    },
+
 });
 
-// this only needs to be used if there is no table in the db
-// const dbSync = async () =>{
-//     try {
-//         await Movie.sync();
-//     } catch (error) {
-//         console.log(error)
-//     }
-// };
-// dbSync();
-
-module.exports =  Movie ;
+const Movie = mongoose.model("Movie", movieSchema);
+module.exports = Movie;
