@@ -1,12 +1,12 @@
 require("./db/connection");
-const exspress = require("express");
+const express = require("express");
 const cors = require("cors");
 const movieRouter = require("./movie/movieRoutes");
 const userRouter = require("./user/userRoutes");
-const app = exspress();
+const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(exspress.json());
+app.use(express.json());
 app.use(cors());
 app.use(movieRouter);
 app.use(userRouter);
