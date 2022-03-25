@@ -4,7 +4,7 @@ const cors = require("cors");
 const movieRouter = require("./movie/movieRoutes");
 const userRouter = require("./user/userRoutes");
 const app = exspress();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(exspress.json());
 app.use(cors());
