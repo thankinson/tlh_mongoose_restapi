@@ -9,4 +9,5 @@ userRouter.get("/user", checkToken, login);
 userRouter.get("/login", listUser)
 userRouter.patch("/user", hashPassword, checkToken, updatePassword);
 userRouter.delete("/user/:filterVal/:filterKey", deleteUser);
+
 module.exports = userRouter;
