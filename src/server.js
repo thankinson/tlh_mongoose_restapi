@@ -11,6 +11,8 @@ app.use(cors());
 app.use(movieRouter);
 app.use(userRouter);
 
+console.log("server js load")
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
