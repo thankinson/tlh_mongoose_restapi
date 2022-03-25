@@ -1,12 +1,16 @@
 require("./db/connection");
-const express = require("express");
+const exspress = require("express");
+const cors = require("cors");
 const movieRouter = require("./movie/movieRoutes");
-const actorRouter = require("./actors/actorsRoutes")
-const app = express();
+const userRouter = require("./user/userRoutes");
+const app = exspress();
 const port = 5000;
 
-app.use(express.json());
+app.use(exspress.json());
+app.use(cors());
 app.use(movieRouter);
-app.use(actorRouter);
+app.use(userRouter);
 
-app.listen(port, () => {console.log(`Listening on port ${port}`)})
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});
