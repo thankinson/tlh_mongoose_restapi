@@ -12,16 +12,16 @@ exports.addUser = async (req, res) => {
     };
 };
 
-// exports.listUser = async (req, res) => {
-//     try {
-//         const user = await User.find({})
-//         res.status(200).send({user: user});
-//         console.log(movies)
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).send({err: error.message});
-//     };
-// };
+exports.listUser = async (req, res) => {
+    try {
+        const user = await User.find({})
+        res.status(200).send({user: user});
+        console.log(movies)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({err: error.message});
+    };
+};
 
 
 exports.login = async (req, res) =>{
@@ -68,19 +68,3 @@ exports.deleteUser = async (req, res) => {
     }
   };
 
-// exports.deleteUser = async (req, res) =>{
-//     try {
-//         let result
-//         if (req.user.username === req.params.username){
-//             result = await User.deleteOne({username: req.user.username});
-//         }
-//         if (result && result.deletedCount > 0){
-//             res.status(200).send({msg: "User Deleted"});
-//         } else {
-//             throw new Error("Notthing deleted");
-//         }
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).send({err: error.message})
-//     }
-// }
